@@ -1,0 +1,127 @@
+git spring: 
+  application: 
+     name: PackageService
+  datasource: 
+    url: jdbc:mysql://localhost:3306/ulearning_sadmin
+    username: root
+    password: '@Debanjan_1998'
+  jpa:
+    hibernate: 
+      ddl-auto: none
+ 
+server: 
+  port: 8089
+  servlet: 
+    contextPath: /default
+name: default-yml
+environment: default
+enabled: true
+contextpath: /default
+servers: 
+   - www.default.com
+   - www.default1.com
+logging: 
+      file: 
+        name: logs/PackageService/default_logs.log
+      pattern:
+        console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+        file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+      level:
+        org.springframework.web: ERROR
+        org.ulearn.*: INFO
+        org.hibernate: ERROR
+        
+jwt.secret.key: secret
+jwt.token.validity: 36000000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka       
+
+        
+        
+---
+spring: 
+  profiles: dev
+  application: 
+     name: PackageService
+  datasource: 
+    url: jdbc:mysql://sql476.main-hosting.eu:3306/u509425513_ulearn
+    username: u509425513_ulearn
+    password: '@NIT@ulearn123'
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate: 
+      ddl-auto: none
+      use-new-id-generator-mappings: false
+server: 
+  port: 8089
+  servlet: 
+    contextPath: /dev
+name: dev-yml
+environment: dev
+enabled: true
+contextpath: /dev
+servers: 
+   - www.dev.com
+   - www.dev1.com
+logging: 
+      file: 
+        name: logs/PackageService/dev_logs.log
+      pattern:
+        console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+        file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+      level:
+        org.springframework.web: ERROR
+        org.ulearn.*: INFO
+        org.hibernate: ERROR
+        
+jwt.secret.key: secret
+jwt.token.validity: 36000000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka       
+        
+        
+        
+---      
+spring: 
+  profiles: prod
+  application: 
+     name: PackageService
+  datasource: 
+    url: jdbc:mysql://localhost:3306/ulearning_sadmin
+    username: root
+    password: '@Debanjan_1998'
+  jpa:
+    hibernate: 
+      ddl-auto: none
+      use-new-id-generator-mappings: false
+server: 
+  port: 8087
+  servlet: 
+    contextPath: /prod
+name: prod-yml
+environment: prod
+enabled: true
+contextpath: /prod
+servers: 
+   - prod
+   - prod.com
+logging: 
+      file: 
+        name: logs/PackageService/prod_logs.log
+      pattern:
+        console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+        file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+      level:
+        org.springframework.web: ERROR
+        org.ulearn.*: INFO
+        org.hibernate: ERROR
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
